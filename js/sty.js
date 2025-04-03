@@ -1637,7 +1637,8 @@ class ImageViewer {
 
   loadImages() {
       const article = document.querySelector('#article-container');
-      this.images = Array.from(article.querySelectorAll('img[data-src]'));
+      //this.images = Array.from(article.querySelectorAll('img[data-src]'));
+      this.images = Array.from(article?.querySelectorAll('img[data-src]') ?? []);
       
       this.images.forEach((img, index) => {
           img.dataset.galleryIndex = index;
@@ -1663,6 +1664,7 @@ class ImageViewer {
       // 图片容器
       this.imageContainer = document.createElement('div');
       this.imageContainer.className = 'gallery-image-container';
+      
       
       // 图片元素
       this.imageEl = document.createElement('img');
